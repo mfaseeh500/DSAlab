@@ -1,178 +1,168 @@
 public class Doubly {
-  
-private Node First; //  Also Called Head  or Front
-private Node Last;  // Also Called Tail  or Rear
 
-      Doubly(){
-      First = null;
-      Last = null;
-      }
+    public Node First; //  Also Called Head  or Front
+    public Node Last;  // Also Called Tail  or Rear
 
-      public boolean isEmpty(){
-       return First == null;
-      }
-      
-      public void insertAtFirst(int item){
-      Node n = new Node();
-      n.value = item;
-      n.prev = Last;
-      if(isEmpty()){
-       Last = n;
-      }else{
-       n.next = First;
-       First.prev = n; 
-      }
-      First = n;
-      }
+    Doubly(){
+        First = null;
+        Last = null;
+    }
 
-      public void insertAtLast(int item){
+    public boolean isEmpty(){
+        return First == null;
+    }
+
+    public void insertAtFirst(int item){
+        Node n = new Node();
+        n.value = item;
+        n.prev = Last;
+        if(isEmpty()){
+            Last = n;
+        }else{
+            n.next = First;
+            First.prev = n;
+        }
+        First = n;
+    }
+
+    public void insertAtLast(int item){
         Node n = new Node();
         n.value = item;
         n.next = null;
         if(isEmpty()){
-          First = n;
+            First = n;
         }else{
-          Last.next = n;
-          n.prev = Last;
+            n.prev = Last;
+            Last.next = n;
+
         }
-         Last = n;
-      }
-         
-      public int DeleteFirstNode(){
-       Node p = First;
+        Last = n;
+    }
+
+    public int DeleteFirstNode(){
+        Node p = First;
         if(isEmpty()){
-          System.out.println("List Is Empty");
-          return -1;
+            System.out.println("List Is Empty");
+            return -1;
         }else if(p.next == null){
-        First = null; 
+            First = null;
         } else{
-        First = p.next;
-        First.prev = null;
-        } 
-      return p.value;
-      }
-      
-      public int DeleteLastNode(){
+            First = p.next;
+            First.prev = null;
+        }
+        return p.value;
+    }
+
+    public int DeleteLastNode(){
         if(isEmpty()){
-        System.out.println("List is Empty");
+            System.out.println("List is Empty");
             return -1;
         }
-         Node p = Last;
-         Last = Last.prev;
-         Last.next = null;
-          return p.value;
-      }
-      
-      public void print(){
-        if(isEmpty()){
-        System.out.println("List is Empty");
-        }else{
-           Node p = First;
-          while(p != null){
-             System.out.print(" {"+p.value+"} --> ");     
-             p = p.next;
-          }
-        }
-      }
+        Node p = Last;
+        Last = Last.prev;
+        Last.next = null;
+        return p.value;
+    }
 
-      public int Max(){
-      
+    public void print(){
+        if(isEmpty()){
+            System.out.println("List is Empty");
+        }else{
+            Node p = First;
+            while(p != null){
+                System.out.print(" {"+p.value+"} --> ");
+                p = p.next;
+            }
+        }
+    }
+
+    public int Max(){
+
         Node p = First;
-       int temp = First.value;
-          while(p != null){
-             if(p.value > temp){
-             temp = p.value;
-             }
-             p = p.next;
-          }
-          
-      return temp;
-      }
- 
-      public int Min(){
-      
+        int temp = First.value;
+        while(p != null){
+            if(p.value > temp){
+                temp = p.value;
+            }
+            p = p.next;
+        }
+
+        return temp;
+    }
+
+    public int Min(){
+
         Node p = First;
-       int temp = First.value;
-          while(p != null){
-             if(p.value < temp){
-             temp = p.value;
-             }
-             p = p.next;
-          }
-          
-      return temp;
-      }
-       
-       
-     public int Product(){
-      
+        int temp = First.value;
+        while(p != null){
+            if(p.value < temp){
+                temp = p.value;
+            }
+            p = p.next;
+        }
+
+        return temp;
+    }
+
+
+    public int Product(){
+int product=1;
         Node p = First;
-       int temp = First.value;
-          while(p != null){
-       temp = temp * p.value;
-             p = p.next;
-            
-          }
-          
-      return temp;
-      }
-        
-     public float average(){
+
+        while(p!= null){
+            product = product * p.value;
+            p = p.next;}
+
+        return product;
+    }
+
+    public float average(){
         float totalSum = 0;
         float Count =0;
         float average = 0;
-        
+
         Node p = First;
-      totalSum = First.value;
-          while(p != null){
-       totalSum = totalSum + p.value;
-             p = p.next;
+
+        while(p != null){
+            totalSum = totalSum + p.value;
+            p = p.next;
             Count++;
-          }
-          System.out.println(Count);
-          average = totalSum / Count;
-      return average;
-      }
-   
-      
-       public void Even(){
-   
-        
+        }
+
+        average = totalSum / Count;
+        return average;
+    }
+
+
+    public void Even(){
+
+
         Node p = First;
-  
-          while(p != null){
-             if(p.value%2 == 0){
-             System.out.println(p.value);
-             }
-             p = p.next;
-   
-          }
-   
-      }
-       public void Odd(){
-   
-        
+
+        while(p != null){
+            if(p.value%2 == 0){
+                System.out.println(p.value);
+            }
+            p = p.next;
+
+        }
+
+    }
+    public void Odd(){
+
+
         Node p = First;
-  
-          while(p != null){
-             if(p.value%2 != 0){
-             System.out.println(p.value);
-             }
-             p = p.next;
-   
-          }
-   
-      }
-        
-        
-       
-     
-    class Node
-    {
-        private int value;
-        private Node next;
-        private Node prev;
-    }    
-    
-    
-}
+
+        while(p != null){
+            if(p.value%2 != 0){
+                System.out.println(p.value);
+            }
+            p = p.next;
+
+        }
+
+    }}
+
+
+
+
